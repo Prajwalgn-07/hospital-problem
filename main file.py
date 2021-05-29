@@ -15,12 +15,12 @@ b=input("do u want to get the details of the patient y/n ")
 try:
     while b == 'y':
         d = int(input("enter the number of days u want to get the details "))
-        while d==0:
-            print("Enter the number of days greater than zero")
-            d = int(input("enter the number of days u want to get the details "))
-    if d<=Countofdaysentered:
-        c.GetPatientDetail(d)
-    elif d>=Countofdaysentered:
-        print("there is no data for these number of days")
+        if d>=0 and d<=Countofdaysentered:
+            c.GetPatientDetail(d)
+        elif d>=Countofdaysentered:
+            print("there is no data for these number of days")
+        if d<=0:
+            print("enter the number of days greater than zero")
+            b=input("do u want to get the details of the patient y/n ")           
 except AttributeError:
     print("There is no detail for these number of days")
